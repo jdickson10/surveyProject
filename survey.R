@@ -82,8 +82,9 @@ dev.off()
 # statistical test 
 t.test(weight ~ species, data=combine)
 
-
-
+# citations
+citation(package = "dplyr", lib.loc = NULL)
+citation(package = "ggplot2", lib.loc = NULL)
 
 
 
