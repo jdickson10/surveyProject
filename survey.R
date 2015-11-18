@@ -34,7 +34,7 @@ speciesDM <- surveys %>%
 
 # build figure
 pdf("figures/histogram.pdf")
-qplot(hindfoot_length, data=speciesDM, ylab = "Frequency", xlab = "Hindfoot Length (mm)", binwidth = 1, geom="histogram")
+qplot(hindfoot_length, data=speciesDM, ylab = "Frequency", xlab = "Hindfoot Length (mm)", binwidth = 1, geom="histogram") + annotate("text", x = 20, y = 3000, label = "Species DM")
 dev.off()
 
 ## mean weight per species
