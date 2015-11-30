@@ -47,7 +47,7 @@ Speciesmerriami <- surveys %>%
 
 # build scatterplot
 pdf("figures/scatterplot.pdf")
-ggplot(Speciesmerriami, aes(x=weight, y=hindfoot_length)) + geom_point(alpha = 1/10, colour="red", size = (1)) + geom_smooth(method=lm) + xlab("Weight (g)") + ylab("Hind Foot Length (mm)")
+ggplot(Speciesmerriami, aes(x=weight, y=hindfoot_length)) + geom_point(alpha = 1/10, colour="red", size = (1)) + stat_smooth(method=lm) + geom_text(x = 40, y = 50,  label = "Dipodomys  merriami") + xlab("Weight (g)") + ylab("Hind Foot Length (mm)")
 dev.off()
 
 ## weight eremicus vs weightmerriami
