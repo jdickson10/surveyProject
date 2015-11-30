@@ -36,23 +36,18 @@ pdf("figures/histogram.pdf")
 qplot(hindfoot_length, data=speciesDM, ylab = "Frequency", xlab = "Hindfoot Length (mm)", binwidth = 1, geom="histogram") + annotate("text", x = 20, y = 3000, label = "Species DM")
 dev.off()
 
-## mean weight per species
-# filter surveys and select columns
-allspecies <- surveys %>%
-  select(weight, species) %>%
-  filter(!is.na(weight)) %>%
-  filter(!is.na(species))
 
-# creating a group
-allspecies %>%
-  group_by(species) 
+## relating weight and hind foot length of one species
+# filter and select 
+Speciesmerriami <- surveys %>%
+  filter(species == "merriami") %>%
+  select(hindfoot_length, weight) %>%
+  filter(!is.na(hindfoot_length)) %>%
+  filter(!is.na(weight))
 
-# creating dataset with average weight per species
-avg <- aggregate(allspecies$weight, list(species = allspecies$species), mean)
-  
-# building bar graph 
-pdf("figures/bargraph.pdf")
-ggplot(data=avg, aes(x=species, y=x)) + xlab("Species") + ylab("Mean Weight (g)") + geom_bar(stat="identity") + coord_flip()
+# build scatterplot
+pdf("figures/scatterplot.pdf")
+ggplot(Speciesmerriami, aes(x=weight, y=hindfoot_length)) + geom_point(alpha = 1/10, colour="red", size = (1)) + geom_smooth(method=lm) + xlab("Weight (g)") + ylab("Hind Foot Length (mm)")
 dev.off()
 
 ## weight eremicus vs weightmerriami
