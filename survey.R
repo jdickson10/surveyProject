@@ -15,7 +15,6 @@ surveys <- read.csv('data/portal_data_joined.csv')
 # weight/species vs year
 # weight/species/sex vs year
 # species vs weight
-# 
 # number of species vs year
 # number of sex vs month
 # sex vs weight
@@ -56,7 +55,7 @@ pdf("figures/bargraph.pdf")
 ggplot(data=avg, aes(x=species, y=x)) + xlab("Species") + ylab("Mean Weight (g)") + geom_bar(stat="identity") + coord_flip()
 dev.off()
 
-## weight albigula vs weightmerriami
+## weight eremicus vs weightmerriami
 # filter and select columns
 eremicus <- surveys %>%
   filter(species == "eremicus") %>%
