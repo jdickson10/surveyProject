@@ -21,9 +21,7 @@ surveys <- read.csv('data/portal_data_joined.csv')
 # hindfoot_length vs sex
 
 ## DM Species vs hindfoot_length
-
 # data parsing step
-
 # filter surveys and select column
 speciesDM <- surveys %>%
   filter(species_id == "DM") %>%
